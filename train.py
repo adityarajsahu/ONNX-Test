@@ -9,7 +9,6 @@ from tensorflow.keras.activations import relu
 from tensorflow.keras.losses import SparseCategoricalCrossentropy
 from tensorflow.keras.optimizers import Adam
 from tensorflow.keras.datasets import cifar10
-import joblib
 
 physical_devices = tf.config.list_physical_devices('GPU')
 tf.config.experimental.set_memory_growth(physical_devices[0], True)
@@ -44,5 +43,5 @@ model.compile(
     metrics=["accuracy"],
 )
 
-model.fit(x_train, y_train, batch_size=64, epochs=1000, verbose=2)
-joblib.dump(model, 'Output/tf_model.pkl')
+model.fit(x_train, y_train, batch_size=64, epochs=100, verbose=2)
+model.save('Output/tf_model.h5')
