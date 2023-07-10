@@ -1,6 +1,6 @@
 import torch
 import torchvision.models as models
-model = models.resnet50(pretrained=True)
+model = models.resnet18(pretrained=True)
 
 model.eval()
 
@@ -11,7 +11,7 @@ output_names = [ "output" ]
 
 torch.onnx.export(model,
                  dummy_input,
-                 "Output/resnet50.onnx",
+                 "Output/resnet18.onnx",
                  verbose=False,
                  input_names=input_names,
                  output_names=output_names,
